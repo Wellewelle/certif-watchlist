@@ -1,0 +1,14 @@
+
+<h1><%= @list.name %></h1>
+
+<% @list.bookmarks.each do |b| %>
+  <%= b.movie.title %>
+  <br>
+  <%= b.comment %>
+  <br>
+  <%= link_to "Delete", bookmark_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
+<br>
+<%= link_to "New bookmark", new_list_bookmark_path(@list) %>
+<br>
+<%= link_to "Back", lists_path %>
